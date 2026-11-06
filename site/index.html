@@ -2,27 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Terraform Training</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      font-family: system-ui, sans-serif;
-      background: #f7f7f8;
-      color: #1a1a1a;
-    }
-    @media (prefers-color-scheme: dark) {
-      body { background: #121214; color: #ededed; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Terraform Associate 004 Course</title>
+  <meta name="description" content="A self-paced course for the HashiCorp Certified: Terraform Associate (004) exam, with checkpoint quizzes and progress saved in your browser.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/css/site.css">
+  <script type="module" src="/js/landing.js"></script>
 </head>
 <body>
-  <main>
-    <h1>Hello, world</h1>
-    <p>terraform-training.peterlester.dev</p>
-  </main>
+<main class="landing">
+  <header class="hero">
+    <h1>Terraform Associate 004 Course</h1>
+    <p>A self-paced course through every exam objective, one idea per page, with a checkpoint quiz after each unit and a mixed mock exam at the end.</p>
+  </header>
+
+  <section class="card progress-card" aria-labelledby="progress-h">
+    <h2 id="progress-h">Your progress</h2>
+    <div class="planline" aria-live="polite">
+      <span class="sum" id="plansum">Plan: nothing learned yet.</span>
+      <span class="bar"><i id="planbar"></i></span>
+    </div>
+    <div class="cta">
+      <a class="btn" id="startBtn" href="/course/">Start the course</a>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="what-h">
+    <h2 id="what-h">What this training is</h2>
+    <p>The course follows the order of HashiCorp's own learning path: Infrastructure as Code, then providers, versions and the lock file, then the core workflow with every <code>init</code>, <code>fmt</code>, <code>validate</code>, <code>plan</code>, <code>apply</code> and <code>destroy</code> option. From there it covers configuration, modules, state and HCP Terraform.</p>
+    <ul>
+      <li><b>Lesson pages</b> teach one point, with a short example and an <i>On the exam</i> note where there's a common trap.</li>
+      <li><b>Checkpoints</b> are 4 to 6 questions. Each answer shows why it's right, with the doc to go back to.</li>
+      <li>The counter reads like a Terraform plan: lessons <span class="add">to learn</span> and <span class="chg">learned</span>. A lesson counts as learned when you move past it; a checkpoint when every question is answered.</li>
+      <li>Topics the learning path leaves out but the exam commonly tests, such as provider aliases and CLI workspaces, are folded in where they fit.</li>
+      <li>A <b>Platform specifics</b> unit gathers details from the AWS, Azure, Google Cloud, Oracle, Docker and Kubernetes tutorials that practice tests sometimes ask about.</li>
+    </ul>
+    <p>Already confident on objectives 1 to 3? Open the contents list in the course and jump to <b>Data sources and references</b>; the early checkpoints are a quick way to confirm.</p>
+  </section>
+
+  <section class="card" aria-labelledby="units-h">
+    <h2 id="units-h">Units</h2>
+    <ul class="units">
+      <li><span>Infrastructure as Code</span><small>1a–1c</small></li>
+      <li><span>Providers, versions and state</span><small>2a–2d</small></li>
+      <li><span>The core workflow</span><small>3a–3g</small></li>
+      <li><span>Data sources and references</span><small>4a 4b 4f</small></li>
+      <li><span>Variables, outputs and locals</span><small>4c</small></li>
+      <li><span>Types and dynamic configuration</span><small>4d 4e</small></li>
+      <li><span>Resource lifecycle</span><small>4f</small></li>
+      <li><span>Custom conditions</span><small>4g</small></li>
+      <li><span>Sensitive data and secrets</span><small>4h</small></li>
+      <li><span>Modules and providers</span><small>5a–5d 2c</small></li>
+      <li><span>State management</span><small>6a–6d</small></li>
+      <li><span>Maintaining infrastructure</span><small>7a–7c</small></li>
+      <li><span>HCP Terraform: runs and organisation</span><small>8a 8c 8d</small></li>
+      <li><span>HCP Terraform: collaboration and governance</span><small>8b</small></li>
+      <li><span>Platform specifics</span><small>extra</small></li>
+      <li><span>Mock exam</span><small>all</small></li>
+    </ul>
+  </section>
+
+  <section class="card" aria-labelledby="cert-h">
+    <h2 id="cert-h">The certification it targets</h2>
+    <p><b>HashiCorp Certified: Terraform Associate (004)</b>, the entry-level Terraform certification. It tests the concepts and skills of working with Terraform CLI and HCP Terraform, against Terraform 1.12.</p>
+    <p>The numbers beside each unit above are the exam objectives it covers, from the official <a href="https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-review-004" target="_blank" rel="noopener">exam content list</a>. When you're ready, book the exam from the <a href="https://developer.hashicorp.com/certifications/infrastructure-automation" target="_blank" rel="noopener">HashiCorp certifications page</a>.</p>
+  </section>
+
+  <section class="card" aria-labelledby="state-h">
+    <h2 id="state-h">How your progress is stored</h2>
+    <ul>
+      <li>Everything is kept in your browser's <code>localStorage</code>, under the key <code>tf004-course-v1</code>. There is no account, server or tracking.</li>
+      <li>It records which pages you've learned, your answer to each checkpoint question, and the page you were last on, so the course reopens where you left off.</li>
+      <li>Progress belongs to this browser on this device. Another browser, another device or a private window starts fresh.</li>
+      <li>Clearing site data for this domain erases it. If storage is blocked, the course still works but forgets your progress when you close the tab.</li>
+      <li>To start over, use <b>Reset progress</b> at the foot of any course page. To redo one quiz, use its <b>Retake</b> link.</li>
+    </ul>
+  </section>
+
+  <section class="card" aria-labelledby="src-h">
+    <h2 id="src-h">Source material</h2>
+    <p>The course was written with Claude as an interactive study artifact, then turned into this site. Its content is drawn from HashiCorp's official material:</p>
+    <ul>
+      <li>The <a href="https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-study-004" target="_blank" rel="noopener">Terraform Associate 004 learning path</a> and <a href="https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-review-004" target="_blank" rel="noopener">exam content list</a>.</li>
+      <li>The Terraform language and CLI docs, pinned to v1.12 where a versioned page exists, and the HCP Terraform docs.</li>
+      <li>The AWS, Azure, Google Cloud, Oracle, Docker and Kubernetes get-started tutorials, for the Platform specifics unit.</li>
+    </ul>
+    <p>Every lesson links to the pages it's based on. Check the <a href="https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-questions-004" target="_blank" rel="noopener">official sample questions</a> for the exam's question style.</p>
+  </section>
+
+  <p class="foot">Not affiliated with or endorsed by HashiCorp. Terraform and HCP Terraform are trademarks of HashiCorp.</p>
+</main>
 </body>
 </html>
