@@ -2,6 +2,8 @@
 
 This site is deployed [here](https://terraform-training.peterlester.dev/)
 
+![screenshot.png](assets/screenshot.png)
+
 ## Run locally
 
 ```bash
