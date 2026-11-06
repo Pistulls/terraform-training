@@ -1,0 +1,40 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+    paths:                       # README-only commits don't trigger a deploy
+      - "site/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch: {}          # manual redeploy; run it on main or the role refuses it
+
+# Two syncs at once could interleave --delete; queue instead of cancel.
+concurrency:
+  group: deploy-site
+  cancel-in-progress: false
+
+# id-token: write lets the job request the OIDC token AWS exchanges for credentials.
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # No `environment:` here: it would change the token's sub and the role would refuse it.
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Assume the deploy role via OIDC
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: eu-west-2
+
+      - name: Sync site/ to the slug prefix
+        run: aws s3 sync site/ "s3://${{ vars.SUBDOMAIN_BUCKET }}/terraform-training/" --delete
+
+      # The router rewrites paths before the cache, so cached keys include the slug.
+      # Never "/*": that would clear other subdomains' cache too.
+      - name: Invalidate this slug's cache
+        run: aws cloudfront create-invalidation --distribution-id "${{ vars.SUBDOMAIN_DISTRIBUTION_ID }}" --paths "/terraform-training/*"
