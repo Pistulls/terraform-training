@@ -1,5 +1,6 @@
-# terraform-training
+# HashiCorp Certified: Terraform Associate (004) training material
 
+This site is deployed [here](https://terraform-training.peterlester.dev/)
 
 ## What is this?
 
